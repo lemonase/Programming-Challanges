@@ -4,33 +4,23 @@
 # What is the largest prime factor of the number 600851475143 ?
 
 
-def get_prime_factors(num):
+def gpf(num):
     """
     Returns a list of factors for a given number
     """
-    prime_set = set()
-
-    for ind in range(2, num):
-        if num % ind == 0:
-            if len(get_prime_factors(ind)) == 0:
-                prime_set.add(ind)
-
-    return prime_set
-
-
-def get_largest_prime_factor(num):
+    factors = []
     i = 2
-    while i**2 < num:
-        if num % i:
-            i += 1
-        else:
-            num //= i
 
-    return num
+    while i <= num:
+        if i in factors:
+            continue
+        if num % i == 0:
+            factors.append(i)
+            num = num / i
+        i += 1
 
-print(sorted(get_prime_factors(13195)))
-print(get_largest_prime_factor(13195))
-# print(sorted(get_factors(600851475143)))
-
+    return factors
 
 
+print(gpf(13195)[-1])
+print(gpf(600851475143)[-1])
