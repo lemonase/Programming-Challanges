@@ -5,18 +5,17 @@
 
 
 def gpf(num):
-    """
-    Returns a list of factors for a given number
-    """
     factors = []
     i = 2
 
     while i <= num:
         if i in factors:
             continue
+
         if num % i == 0:
             factors.append(i)
             num = num / i
+
         i += 1
 
     return factors
