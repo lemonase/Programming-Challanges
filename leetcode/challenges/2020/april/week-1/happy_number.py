@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 import sys
 
+
 class Solution:
     def isHappy(self, n: int) -> bool:
         nn = n
         visited = set()
-
 
         while True:
             # (re)set sum to 0
@@ -35,4 +35,3 @@ class Solution:
 s = Solution()
 print(s.isHappy(19))
 print(s.isHappy(2))
-

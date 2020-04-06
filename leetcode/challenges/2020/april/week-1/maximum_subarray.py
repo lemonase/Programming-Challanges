@@ -2,6 +2,7 @@
 
 import itertools
 
+
 class Solution:
     """
     an O(n) solution
@@ -22,20 +23,22 @@ class Solution:
 
         return max_sum
 
+
 class Solution1:
     """
     v1 solution
     slow because basically O(n^2)
     """
+
     def maxSubArray(self, nums) -> int:
         nl = nums
         cap = len(nl)
         subsum = nl[0]
         maxsum = nl[0]
 
-        for i, n in enumerate(nl): 
+        for i, n in enumerate(nl):
             for j in range(i, cap):
-                subsum = sum(nl[i:j+1])
+                subsum = sum(nl[i:j + 1])
                 maxsum = max(maxsum, subsum)
 
         return maxsum
@@ -46,11 +49,12 @@ class Solution2:
     v2 solution with itertools
     slow for the same reasons as v1
     """
+
     def maxSubArray(self, nums) -> int:
         max_sum = nums[0]
 
         # get list of indexes
-        inds = list(range(len(nums)+1))
+        inds = list(range(len(nums) + 1))
 
         # iterate over combinations
         for i, j in itertools.combinations(inds, 2):
@@ -60,10 +64,8 @@ class Solution2:
         return max_sum
 
 
-
 s = Solution()
-print(s.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+print(s.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
 print(s.maxSubArray([-1]))
 print(s.maxSubArray([1]))
 print(s.maxSubArray([1, 2]))
-
